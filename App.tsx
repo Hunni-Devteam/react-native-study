@@ -24,9 +24,6 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-interface Props {}
-interface State {}
-
 class App extends Component {
   render() {
     return (
