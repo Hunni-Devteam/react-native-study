@@ -24,6 +24,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import StoresResultMock from './mocks/storesResult';
+
 class App extends Component {
   render() {
     return (
@@ -39,6 +41,13 @@ class App extends Component {
                 <Text style={styles.footer}>Engine: Hermes</Text>
               </View>
             )}
+            {
+              StoresResultMock.storeInfos.map((storeInfo: any) => {
+                return (
+                  <Text>{storeInfo.addr}</Text>
+                );
+              })
+            }
             <View style={styles.body}>
               <View style={styles.sectionContainer}>
                 <Text style={styles.sectionTitle}>Step One</Text>
