@@ -1,31 +1,35 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import 'react-native-gesture-handler';
+import React from 'react';
+import { StatusBar } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import IndexPage from './src/pages/Index';
-import React, { Component } from 'react';
-import {
-  // SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  // View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import HomePage from './src/pages/Home';
+import BarcodePage from './src/pages/Barcode';
+import ProductDetailPage from './src/pages/product/Detail';
 
-class App extends Component {
-  render() {
-    return (
-      <>
-        <StatusBar barStyle="dark-content" />
-        <IndexPage />
-      </>
-    );
-  }
-};
+const RootStack = createStackNavigator();
+const MainStack = createStackNavigator();
 
-export default App;
+function MainScreen() {
+  return (
+    <MainStack.Navigator>
+      <MainStack.Screen name="Home" component={HomePage} options={{ title: '홈' }} />
+      <MainStack.Screen name="ProductDetail" component={ProductDetailPage} options={{ title: '상품정보' }} />
+    </MainStack.Navigator>
+  );
+}
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <StatusBar barStyle="dark-content" />
+      <RootStack.Navigator mode="modal">
+        {/* 메인 라우터 */}
+        <RootStack.Screen name="Main" component={MainScreen} options={{ title: '홈', headerShown: false }} />    
+        {/* 바코드 스캔 모달 */}
+        <RootStack.Screen name="Barcode" component={BarcodePage} options={{ title: '스캔' }} />
+      </RootStack.Navigator>
+    </NavigationContainer>
+  );
+}

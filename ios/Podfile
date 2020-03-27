@@ -41,6 +41,7 @@ target 'RNStudy' do
   pod 'Firebase/Core'
 
 
+
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
   target 'RNStudyTests' do
