@@ -4,6 +4,7 @@ import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import LoginPage from './src/pages/auth/Login';
 import HomePage from './src/pages/Home';
 import BarcodePage from './src/pages/Barcode';
 import ProductDetailPage from './src/pages/product/Detail';
@@ -25,6 +26,7 @@ export default function App() {
     <NavigationContainer>
       <StatusBar barStyle="dark-content" />
       <RootStack.Navigator mode="modal">
+        <RootStack.Screen name="Login" component={LoginPage} options={{ headerShown: false }} />
         {/* 메인 라우터 */}
         <RootStack.Screen name="Main" component={MainScreen} options={{ title: '홈', headerShown: false }} />    
         {/* 바코드 스캔 모달 */}
