@@ -84,7 +84,6 @@ export default function BarcodePage() {
             </View>
           </View>
         </View>
-        
       </ScrollView>
     </SafeAreaView>
   );
